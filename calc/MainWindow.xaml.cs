@@ -16,10 +16,14 @@ namespace calc;
 /// </summary>
 public partial class MainWindow : Window
 {
+    private bool isResultDisplayed = false;
+
+    private object lastResult = "";
+
     public MainWindow()
     {
-        InitializeComponent();
 
+        InitializeComponent();
         btnUndo.Click += BtnUndo_Click;
         btnClear.Click += BtnClear_Click;
         btnEquals.Click += BtnEquals_Click;
@@ -39,7 +43,8 @@ public partial class MainWindow : Window
         btnDivide.Click += BtnDivide_Click;
         btnMult.Click += BtnMult_Click;
         btnPlus.Click += BtnPlus_Click;
-        btnMinus.Click += BtnMinus_Click; btnProcent.Click += BtnProcent_Click;
+        btnMinus.Click += BtnMinus_Click;
+        btnProcent.Click += BtnProcent_Click;
         btnPosNeg.Click += BtnPosNeg_Click;
     }
 
@@ -121,6 +126,8 @@ public partial class MainWindow : Window
             object result = new System.Data.DataTable().Compute(expression, null);
 
             txtDisplay.Text = result.ToString();
+            lastResult = result;
+            isResultDisplayed = true;
         }
         catch
         {
@@ -145,7 +152,6 @@ public partial class MainWindow : Window
 
     private void BtnDot_Click(object sender, RoutedEventArgs e)
     {
-        if (!txtDisplay.Text.Contains(","))
             txtDisplay.Text += ",";
     }
 
@@ -156,56 +162,147 @@ public partial class MainWindow : Window
 
     private void Btn9_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "9";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "9";  
+            isResultDisplayed = false; 
+        }
+        else
+        {
+            txtDisplay.Text += "9";
+        }
     }
 
     private void Btn8_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "8";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "8";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "8";
+        }
     }
 
     private void Btn7_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "7";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "7";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "7";
+        }
     }
 
     private void Btn6_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "6";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "6";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "6";
+        }
     }
 
     private void Btn5_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "5";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "5";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "5";
+        }
     }
 
     private void Btn4_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "4";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "4";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "4";
+        }
     }
 
     private void Btn3_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "3";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "3";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "3";
+        }
     }
 
     private void Btn0_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "0";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "0";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "0";
+        }
     }
 
     private void Btn2_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "2";
+        if(isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "2";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "2";
+        }
     }
 
     private void Btn1_Click(object sender, RoutedEventArgs e)
     {
-        txtDisplay.Text += "1";
+        if (isResultDisplayed && txtDisplay.Text == lastResult.ToString())
+        {
+            OntxtDisplay.Text = "";
+            txtDisplay.Text = "1";
+            isResultDisplayed = false;
+        }
+        else
+        {
+            txtDisplay.Text += "1";
+        }
     }
 
     private void BtnClear_Click(object sender, RoutedEventArgs e)
     {
+        OntxtDisplay.Text = "";
         txtDisplay.Text = "";
     }
 
