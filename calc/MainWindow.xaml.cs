@@ -47,7 +47,6 @@ public partial class MainWindow : Window
     {
         try
         {
-            // Перевірка, чи є число в текстовому полі
             if (txtDisplay.Text.Length == 0)
                 return;
 
@@ -67,7 +66,7 @@ public partial class MainWindow : Window
         }
         catch
         {
-            txtDisplay.Text = "Error";  // Якщо виникла помилка
+            txtDisplay.Text = "Error";
         }
     }
 

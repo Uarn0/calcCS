@@ -30,8 +30,8 @@
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "C:\\vsprog\\calculator\\calc\\calc\\MainWindow.xaml",
               "RelativeDocumentMoniker": "calc\\MainWindow.xaml",
-              "ToolTip": "C:\\vsprog\\calculator\\calc\\calc\\MainWindow.xaml*",
-              "RelativeToolTip": "calc\\MainWindow.xaml*",
+              "ToolTip": "C:\\vsprog\\calculator\\calc\\calc\\MainWindow.xaml",
+              "RelativeToolTip": "calc\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-03-30T12:15:55.781Z",
               "EditorCaption": ""
@@ -46,8 +46,7 @@
               "RelativeToolTip": "calc\\MainWindow.xaml.cs",
               "ViewState": "AgIAAFQAAAAAAAAAAAAowHgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-30T12:15:54.298Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-30T12:15:54.298Z"
             }
           ]
         }
