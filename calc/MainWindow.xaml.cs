@@ -39,9 +39,78 @@ public partial class MainWindow : Window
         btnDivide.Click += BtnDivide_Click;
         btnMult.Click += BtnMult_Click;
         btnPlus.Click += BtnPlus_Click;
-        btnMinus.Click += BtnMinus_Click;
+        btnMinus.Click += BtnMinus_Click; btnProcent.Click += BtnProcent_Click;
+        btnPosNeg.Click += BtnPosNeg_Click;
     }
 
+    private void BtnPosNeg_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            // Перевірка, чи є число в текстовому полі
+            if (txtDisplay.Text.Length == 0)
+                return;
+
+            // Якщо перший символ - мінус або плюс, то просто змінюємо знак
+            if (txtDisplay.Text.StartsWith("-"))
+            {
+                txtDisplay.Text = txtDisplay.Text.Substring(1);  // Видаляємо мінус
+            }
+            else if (txtDisplay.Text.StartsWith("+"))
+            {
+                txtDisplay.Text = txtDisplay.Text.Substring(1);  // Видаляємо плюс
+            }
+            else
+            {
+                txtDisplay.Text = "-" + txtDisplay.Text;  // Додаємо мінус
+            }
+        }
+        catch
+        {
+            txtDisplay.Text = "Error";  // Якщо виникла помилка
+        }
+    }
+
+
+    private void BtnProcent_Click(object sender, RoutedEventArgs e)
+    {
+        try
+        {
+            if (txtDisplay.Text.Length == 0)
+                return;
+
+            string expression = txtDisplay.Text;
+            char lastChar = expression.Last();
+
+            if ("+-×÷".Contains(lastChar))
+                return;
+
+            int lastOperatorIndex = expression.LastIndexOfAny(new char[] { '+', '-', '×', '÷' });
+
+            if (lastOperatorIndex == -1)
+            {
+                double number = Convert.ToDouble(expression.Replace(",", ".")) / 100;
+                txtDisplay.Text = number.ToString();
+            }
+            else
+            {
+                string firstPart = expression.Substring(0, lastOperatorIndex);
+                string lastNumberStr = expression.Substring(lastOperatorIndex + 1);
+
+                double baseNumber = Convert.ToDouble(firstPart.Replace(",", "."));
+                double lastNumber = Convert.ToDouble(lastNumberStr.Replace(",", ".")) / 100;
+
+                double percentageValue = baseNumber * lastNumber;
+
+                txtDisplay.Text = firstPart + expression[lastOperatorIndex] + percentageValue.ToString();
+            }
+        }
+        catch
+        {
+            txtDisplay.Text = "Error";
+
+        }
+    }
     private void BtnEquals_Click(object sender, RoutedEventArgs e)
     {
         try
@@ -50,11 +119,6 @@ public partial class MainWindow : Window
 
             string expression = txtDisplay.Text.Replace(",", ".").Replace("×", "*").Replace("÷", "/");
 
-            if (expression.Count(c => "+-*/".Contains(c)) != 1)
-            {
-                txtDisplay.Text = "Error";
-                return;
-            }
             object result = new System.Data.DataTable().Compute(expression, null);
 
             txtDisplay.Text = result.ToString();
@@ -64,7 +128,6 @@ public partial class MainWindow : Window
             txtDisplay.Text = "Error";
         }
     }
-
 
     private void BtnMinus_Click(object sender, RoutedEventArgs e)
     {

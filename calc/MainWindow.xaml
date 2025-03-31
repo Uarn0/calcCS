@@ -5,13 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:calc"
         mc:Ignorable="d"
-        Title="Calculator" Height="506" Width="800">
+        Title="Calculator" Height="506" Width="800"
+        MinWidth="250" MinHeight="300">
     <Grid>
         
         <!--Grid will be 5x4-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*" MinHeight="50"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
@@ -29,46 +30,49 @@
 
         <!--Action-->
         <TextBox x:Name="OntxtDisplay" Grid.Row="0" Grid.ColumnSpan="3"
-             FontSize="15" TextAlignment="Right" Padding="20"
+             FontSize="15" TextAlignment="Right" Padding="10"
              IsReadOnly="True" VerticalContentAlignment="Center"
-             Background="Transparent" BorderBrush="Transparent"/>
+             Background="Transparent" BorderBrush="Transparent"
+             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+             MinHeight="50"/>
         <!--!Action-->
-
 
         <!--Result-->
         <TextBox x:Name="txtDisplay" Grid.Row="1" Grid.ColumnSpan="4"
-         FontSize="24" TextAlignment="Right" Padding="10"
-         IsReadOnly="True" VerticalContentAlignment="Center"
-         Foreground="Black"/>
-
+             FontSize="24" TextAlignment="Right" Padding="10"
+             IsReadOnly="True" VerticalContentAlignment="Center"
+             Foreground="Black"
+             VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+             MinHeight="80"/>
         <!--!Result-->
-        
+
+
         <!--Numbers and Operations-->
-        <Button x:Name="btn1" Content="1" Grid.Row="5" Grid.Column="0"></Button>
-        <Button x:Name="btn2" Content="2" Grid.Row="5" Grid.Column="1"></Button>
-        <Button x:Name="btn3" Content="3" Grid.Row="5" Grid.Column="2"></Button>
-        <Button x:Name="btnPlus" Content="+" Grid.Row="5" Grid.Column="3"/>
-        
-        <Button x:Name="btn4" Content="4" Grid.Row="4" Grid.Column="0"></Button>
-        <Button x:Name="btn5" Content="5" Grid.Row="4" Grid.Column="1"></Button>
-        <Button x:Name="btn6" Content="6" Grid.Row="4" Grid.Column="2"></Button>
-        <Button x:Name="btnMult" Content="×" Grid.Row="4" Grid.Column="3"/>
+        <Button x:Name="btn1" Content="1" FontSize="24" Grid.Row="5" Grid.Column="0"></Button>
+        <Button x:Name="btn2" Content="2" FontSize="24" Grid.Row="5" Grid.Column="1"></Button>
+        <Button x:Name="btn3" Content="3" FontSize="24" Grid.Row="5" Grid.Column="2"></Button>
+        <Button x:Name="btnPlus" Content="+" FontSize="24" Grid.Row="5" Grid.Column="3"/>
 
-        <Button x:Name="btn7" Content="7" Grid.Row="3" Grid.Column="0"></Button>
-        <Button x:Name="btn8" Content="8" Grid.Row="3" Grid.Column="1"></Button>
-        <Button x:Name="btn9" Content="9" Grid.Row="3" Grid.Column="2"></Button>
-        <Button x:Name="btnDivide" Content="÷" Grid.Row="3" Grid.Column="3"/>
+        <Button x:Name="btn4" Content="4" FontSize="24" Grid.Row="4" Grid.Column="0"></Button>
+        <Button x:Name="btn5" Content="5" FontSize="24" Grid.Row="4" Grid.Column="1"></Button>
+        <Button x:Name="btn6" Content="6" FontSize="24" Grid.Row="4" Grid.Column="2"></Button>
+        <Button x:Name="btnMult" Content="×" FontSize="24" Grid.Row="4" Grid.Column="3"/>
 
-        <Button x:Name="btn0" Content="0" Grid.Row="6" Grid.Column="1"></Button>
-        
-        <Button x:Name="btnPosNeg" Content="+/-" Grid.Row="6" Grid.Column="0"/>
-        <Button x:Name="btnDot" Content="," Grid.Row="6" Grid.Column="2"/>
-        <Button x:Name="btnEquals" Content="=" Grid.Row="6" Grid.Column="3"/>
-        <Button x:Name="btnMinus" Content="-" Grid.Row="2" Grid.Column="3"/>
+        <Button x:Name="btn7" Content="7" FontSize="24" Grid.Row="3" Grid.Column="0"></Button>
+        <Button x:Name="btn8" Content="8" FontSize="24" Grid.Row="3" Grid.Column="1"></Button>
+        <Button x:Name="btn9" Content="9" FontSize="24" Grid.Row="3" Grid.Column="2"></Button>
+        <Button x:Name="btnDivide" Content="÷" FontSize="24" Grid.Row="3" Grid.Column="3"/>
 
-        <Button x:Name="btnProcent" Content="%" Grid.Row="2" Grid.Column="0"/>
-        <Button x:Name="btnClear" Content="C" Grid.Row="2" Grid.Column="1"/>
-        <Button x:Name="btnUndo" Content="⌫" Grid.Row="2" Grid.Column="2"/>
+        <Button x:Name="btn0" Content="0" Grid.Row="6" FontSize="24" Grid.Column="1"></Button>
+
+        <Button x:Name="btnPosNeg" Content="+/-" FontSize="24" Grid.Row="6" Grid.Column="0"/>
+        <Button x:Name="btnDot" Content="," FontSize="24" Grid.Row="6" Grid.Column="2"/>
+        <Button x:Name="btnEquals" Content="=" FontSize="24" Grid.Row="6" Grid.Column="3"/>
+        <Button x:Name="btnMinus" Content="-" FontSize="24" Grid.Row="2" Grid.Column="3"/>
+
+        <Button x:Name="btnProcent" Content="%" FontSize="24" Grid.Row="2" Grid.Column="0"/>
+        <Button x:Name="btnClear" Content="C" FontSize="24" Grid.Row="2" Grid.Column="1"/>
+        <Button x:Name="btnUndo" Content="⌫" FontSize="24" Grid.Row="2" Grid.Column="2"/>
         <!--!Numbers and Operations-->
     </Grid>
 </Window>

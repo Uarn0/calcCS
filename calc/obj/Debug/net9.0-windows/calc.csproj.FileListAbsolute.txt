@@ -18,3 +18,4 @@ C:\vsprog\calculator\calc\calc\obj\Debug\net9.0-windows\refint\calc.dll
 C:\vsprog\calculator\calc\calc\obj\Debug\net9.0-windows\calc.pdb
 C:\vsprog\calculator\calc\calc\obj\Debug\net9.0-windows\calc.genruntimeconfig.cache
 C:\vsprog\calculator\calc\calc\obj\Debug\net9.0-windows\ref\calc.dll
+C:\vsprog\calculator\calc\calc\obj\Debug\net9.0-windows\calc.sourcelink.json
