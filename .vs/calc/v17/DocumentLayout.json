@@ -33,7 +33,8 @@
               "ToolTip": "C:\\vsprog\\calculator\\calc\\calc\\MainWindow.xaml",
               "RelativeToolTip": "calc\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-03-30T12:15:55.781Z"
+              "WhenOpened": "2025-03-30T12:15:55.781Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -43,7 +44,7 @@
               "RelativeDocumentMoniker": "calc\\MainWindow.xaml.cs",
               "ToolTip": "C:\\vsprog\\calculator\\calc\\calc\\MainWindow.xaml.cs",
               "RelativeToolTip": "calc\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAIsAAAAAAAAAAAAcwJ0AAABCAAAAAAAAAA==",
+              "ViewState": "AgIAAKoAAAAAAAAAAAAEwLcAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-30T12:15:54.298Z",
               "EditorCaption": ""

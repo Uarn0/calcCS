@@ -7,8 +7,21 @@
         mc:Ignorable="d"
         Title="Calculator" Height="506" Width="800"
         MinWidth="250" MinHeight="300">
+    <Window.Resources>
+        <Storyboard x:Key="ShowPanelStoryboard">
+            <DoubleAnimation Storyboard.TargetName="PanelTransform"
+                         Storyboard.TargetProperty="X"
+                         To="0" Duration="0:0:0.0"/>
+        </Storyboard>
+
+        <Storyboard x:Key="HidePanelStoryboard">
+            <DoubleAnimation Storyboard.TargetName="PanelTransform"
+                         Storyboard.TargetProperty="X"
+                         To="211" Duration="0:0:0.0"/>
+        </Storyboard>
+    </Window.Resources>
+
     <Grid>
-        
         <!--Grid will be 5x4-->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -25,6 +38,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition x:Name="LastColumn" Width="0"/>
         </Grid.ColumnDefinitions>
         <!--!Grid will be 5x4-->
 
@@ -45,9 +59,25 @@
              VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
              MinHeight="80"/>
         <!--!Result-->
+        <!-- Кнопка відкриття меню -->
+        <Button x:Name="btnMore" Content="≡" FontSize="24" Width="50" Height="40"
+        HorizontalAlignment="Left" />
+
 
 
         <!--Numbers and Operations-->
+
+        <Button x:Name="btnPi" Content="π" FontSize="24" Grid.Row="2" Grid.Column="4"/>
+        <Button x:Name="btnSqrt" Content="√" FontSize="24" Grid.Row="3" Grid.Column="4"/>
+        <Button x:Name="btnDegree" Grid.Row="6" Grid.Column="4">
+            <TextBlock>
+                <Run Text="n" FontSize="24"/>
+                <Run Text="x" FontSize="20" BaselineAlignment="Superscript"/>
+            </TextBlock>
+        </Button>
+        <Button x:Name="btnLogariphm" Content="ln" FontSize="24" Grid.Row="4" Grid.Column="4"/>
+        <Button x:Name="btnEpsilon" Content="e" FontSize="24" Grid.Row="5" Grid.Column="4"/>
+        
         <Button x:Name="btn1" Content="1" FontSize="24" Grid.Row="5" Grid.Column="0"></Button>
         <Button x:Name="btn2" Content="2" FontSize="24" Grid.Row="5" Grid.Column="1"></Button>
         <Button x:Name="btn3" Content="3" FontSize="24" Grid.Row="5" Grid.Column="2"></Button>
