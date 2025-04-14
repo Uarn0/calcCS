@@ -138,42 +138,7 @@ public partial class MainWindow : Window
 
     private void BtnProcent_Click(object sender, RoutedEventArgs e)
     {
-        try
-        {
-            if (txtDisplay.Text.Length == 0)
-                return;
-
-            string expression = txtDisplay.Text;
-            char lastChar = expression.Last();
-
-            if ("+-×÷".Contains(lastChar))
-                return;
-
-            int lastOperatorIndex = expression.LastIndexOfAny(new char[] { '+', '-', '×', '÷' });
-
-            if (lastOperatorIndex == -1)
-            {
-                double number = Convert.ToDouble(expression.Replace(",", ".")) / 100;
-                txtDisplay.Text = number.ToString();
-            }
-            else
-            {
-                string firstPart = expression.Substring(0, lastOperatorIndex);
-                string lastNumberStr = expression.Substring(lastOperatorIndex + 1);
-
-                double baseNumber = Convert.ToDouble(firstPart.Replace(",", "."));
-                double lastNumber = Convert.ToDouble(lastNumberStr.Replace(",", ".")) / 100;
-
-                double percentageValue = baseNumber * lastNumber;
-
-                txtDisplay.Text = firstPart + expression[lastOperatorIndex] + percentageValue.ToString();
-            }
-        }
-        catch
-        {
-            txtDisplay.Text = "Error";
-
-        }
+        txtDisplay.Text += "%";
     }
     
 
@@ -208,6 +173,16 @@ public partial class MainWindow : Window
                 double exponent = double.Parse(m.Groups[3].Value);
                 return Math.Pow(baseNum, exponent).ToString().Replace(",", ".");
             });
+            expression = Regex.Replace(expression, @"(\d+(\.\d+)?)([\+\-\*/])(\d+(\.\d+)?)%", m =>
+            {
+                double x = double.Parse(m.Groups[1].Value);
+                string op = m.Groups[3].Value;
+                double y = double.Parse(m.Groups[4].Value);
+
+                double percentOfX = x * y / 100.0;
+                return $"{x}{op}{percentOfX.ToString().Replace(",", ".")}";
+            });
+
 
             var result = new DataTable().Compute(expression, "");
             txtDisplay.Text = result.ToString();
