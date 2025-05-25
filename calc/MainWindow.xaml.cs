@@ -23,9 +23,11 @@ public partial class MainWindow : Window
 
     private object lastResult = "";
     private bool isPanelOpen = false;
+    private Stack<string> undoStack = new();
+    private Stack<string> redoStack = new();
+
     public MainWindow()
     {
-
         InitializeComponent();
         btnUndo.Click += BtnUndo_Click;
         btnClear.Click += BtnClear_Click;
@@ -55,7 +57,19 @@ public partial class MainWindow : Window
         btnEpsilon.Click += BtnEpsilon_Click;
         btnDegree.Click += BtnDegree_Click;
         btnSqrt.Click += BtnSqrt_Click;
+        btnRedo.Click += BtnRedo_Click;
     }
+
+    private void BtnRedo_Click(object sender, RoutedEventArgs e)
+    {
+        if (redoStack.Count > 0)
+        {
+            string redoText = redoStack.Pop();
+            undoStack.Push(txtDisplay.Text);
+            txtDisplay.Text = redoText;
+        }
+    }
+
 
     private void BtnSqrt_Click(object sender, RoutedEventArgs e)
     {
@@ -366,15 +380,17 @@ public partial class MainWindow : Window
         OntxtDisplay.Text = "";
         txtDisplay.Text = "";
     }
-    
+
 
     private void BtnUndo_Click(object sender, RoutedEventArgs e)
     {
         if (!string.IsNullOrEmpty(txtDisplay.Text))
         {
+            redoStack.Push(txtDisplay.Text);
             txtDisplay.Text = txtDisplay.Text.Substring(0, txtDisplay.Text.Length - 1);
         }
     }
+
 
     //private void BtnClearEntry_Click(object sender, RoutedEventArgs e)
     //{

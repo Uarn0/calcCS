@@ -103,6 +103,7 @@
         <Button x:Name="btnProcent" Content="%" FontSize="24" Grid.Row="2" Grid.Column="0"/>
         <Button x:Name="btnClear" Content="C" FontSize="24" Grid.Row="2" Grid.Column="1"/>
         <Button x:Name="btnUndo" Content="⌫" FontSize="24" Grid.Row="2" Grid.Column="2"/>
+        <Button x:Name="btnRedo" Content="↷" FontSize="24" Grid.Row="2" Grid.Column="4"/>
         <!--!Numbers and Operations-->
     </Grid>
 </Window>
